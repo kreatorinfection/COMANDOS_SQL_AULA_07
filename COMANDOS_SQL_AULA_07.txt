@@ -1,0 +1,115 @@
+USE DBempresa;
+
+-- 1. alterar o salario de carlos eduardo usando o nome
+UPDATE funcionarios
+SET salario = 6000.00
+WHERE nome = 'Carlos Eduardo';
+
+
+-- 2. corrigir o salário de fernanda costa usando o id
+UPDATE funcionarios
+SET salario = 4000.00
+WHERE id = 5;
+
+
+-- 3. alterar cargo e departamento de patricia gomes
+UPDATE funcionarios
+SET cargo = 'Gerente de Marketing',
+    departamento = 'Marketing'
+WHERE nome = 'Patricia Gomes';
+
+
+-- 4. promover todos os estagiarios para assistente
+UPDATE funcionarios
+SET cargo = 'Assistente'
+WHERE cargo = 'Estagiário';
+
+
+-- 5. UPDATE com IN
+UPDATE funcionarios
+SET status = 'Inativo'
+WHERE id IN (7, 10, 14);
+
+
+-- 6. UPDATE com OR
+UPDATE funcionarios
+SET salario = 5000.00
+WHERE cargo = 'Desenvolvedor Frontend'
+   OR cargo = 'Desenvolvedor Backend';
+
+
+-- 7. UPDATE com IS NULL
+UPDATE funcionarios
+SET salario = 3000.00
+WHERE salario IS NULL;
+
+
+-- 8. UPDATE com IS NOT NULL
+UPDATE funcionarios
+SET status = 'Confirmado'
+WHERE salario IS NOT NULL;
+
+
+-- 9. aumentar em 10% o salario de todos do departamento de ti
+UPDATE funcionarios
+SET salario = salario * 1.10
+WHERE departamento = 'TI';
+
+
+-- 10. alterar status NULL para pendente
+UPDATE funcionarios
+SET status = 'Pendente'
+WHERE status IS NULL;
+
+
+-- 11. deletar funcionario com id 15
+DELETE FROM funcionarios
+WHERE id = 15;
+
+
+-- 12. deletar funcionario pelo NOME
+DELETE FROM funcionarios
+WHERE nome = 'Lucas Mendes';
+
+
+-- 13. Deletar funcionários admitidos antes de 2018
+DELETE FROM funcionarios
+WHERE data_admissao < '2018-01-01';
+
+
+-- 14. DELETE com IN
+DELETE FROM funcionarios
+WHERE cargo IN ('Estagiário', 'Suporte Técnico');
+
+
+-- 15. DELETE com OR
+DELETE FROM funcionarios
+WHERE departamento = 'Marketing'
+   OR salario < 2000.00;
+
+
+-- 16. DELETE com IS NULL
+DELETE FROM funcionarios
+WHERE status IS NULL;
+
+
+-- 17. DELETE com IS NOT NULL
+DELETE FROM funcionarios
+WHERE departamento = 'Financeiro'
+  AND salario IS NOT NULL;
+
+
+-- 18. deletar funcionarios com status inativo
+DELETE FROM funcionarios
+WHERE status = 'Inativo';
+
+
+-- 19. deletar funcionários de ti com salario menor que 3000
+DELETE FROM funcionarios
+WHERE departamento = 'TI'
+  AND salario < 3000.00;
+
+
+-- 20. deletar funcionário com id 20
+DELETE FROM funcionarios
+WHERE id = 20;
